@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
@@ -63,25 +63,26 @@ export default class Login extends Component {
 
     render() {
         return (
-
-            <Form onSubmit={this.onSubmit} style={{marginLeft:180}}>
+            <Container style={{marginTop:50, width:700}}>
+            <Form onSubmit={this.onSubmit}>
                 <div className="form-center">
                     <div className="form-group">
                         <label>Email</label>
-                        <input type="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
+                        <input type="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} required />
                     </div>
                     <div className="form-group">
                         <label>Password</label>
                         <input type="password" className="form-control" value={this.state.password} onChange={this.onChangeName} />
                     </div>
                     <div className="form-group">
-                        <Button style={{ color: "white" }} variant="dark" type="submit" className="btn-continue">
-                            {/* <Link to="/Home" style={{ color: "white" }}>Continue</Link> */}
-                            </Button>
+                    <Link to="/Home" style={{ color: "white" }}> <Button style={{ color: "white" }} variant="dark" type="submit" className="btn-continue">
+                            Submit 
+                            </Button></Link>
                     </div>
                     <br /><br />
                 </div>
             </Form>
+            </Container>
 
         )
     }

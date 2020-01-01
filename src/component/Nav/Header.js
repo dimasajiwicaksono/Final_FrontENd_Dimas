@@ -1,32 +1,29 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Button } from 'react-bootstrap';
-import DropDown from './DropDown';
+import { Nav, Navbar} from 'react-bootstrap';
+import DropDownProfile from './DropDown';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+
 
 export default class Header extends Component {
     render() {
         return (
-                <Nav className = "lg bg-success variant-dark">
-                    <Navbar.Brand href='/Home'>
-                        <h1>Dumb Tick</h1>
-                    </Navbar.Brand>
-                    <Navbar className ="icon" inline>
-                        <div className ='button' style={{marginLeft:"300px"}}>
-                            <span inline>
-                                <div>
-                                <Button variant = 'outline-dark' type = 'submit'>
-                                    Register
-                                </Button>
-                                <Button variant = 'outline-dark' type = 'submit'>
-                                    Login
-                                </Button>
-                                <div className="button">
-                                    <DropDown />
-                                </div>
-                                </div>
-                            </span>
-                        </div>
-                    </Navbar>
+            <Navbar className=' bg-danger justify-content-between'
+                    /*fixed='top'*/>
+                <Navbar.Brand
+                    className='light'
+                    style={{ fontSize: '2em', color: 'white' }}
+                    href='/Home'>
+                    Dumb-Tick
+                </Navbar.Brand>
+                <Nav
+                    className="justify-content-end "
+                    style={{ fontSize: '1.5em', color: 'white' }}>
+                        <FontAwesomeIcon icon={ faUser } style={{marginTop:15}} /><Nav.Link href='/Register'>Register</Nav.Link>
+                        <FontAwesomeIcon icon={ faSignInAlt } style={{marginTop:15}} /><Nav.Link href='/Login'>Login</Nav.Link>
+                    < DropDownProfile />
                 </Nav>
+            </Navbar>
         )
     }
 }

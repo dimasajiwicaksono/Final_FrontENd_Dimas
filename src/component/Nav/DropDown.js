@@ -1,9 +1,28 @@
 import React, { Component } from 'react';
-import { Dropdown, DropdownButton, Nav, Button, Image, Row, Col, Container } from 'react-bootstrap';
+import { Dropdown, DropdownButton, Image, Row, Col } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
 
-export default class DropDownProfile extends Component {
+import { profile } from '../../_actions/profile';
+
+
+
+class DropDownProfile extends Component {
+
+    componentDidMount() {
+
+        const userId = this.props
+        this.props.getUser()
+        console.log(userId)
+    }
+
     render() {
+
+        const { data } = this.props.profile
+        console.log(data)
+
+
+
         const trigger = (
             <span>
                 <Image src="https://miro.medium.com/max/4195/1*cWrckQhDDGxKiwpb6YtPtg.jpeg" />
@@ -17,25 +36,40 @@ export default class DropDownProfile extends Component {
                     <Dropdown.Item as="block" >
                         <Row >
                             <Col>
-                                <Image src="https://miro.medium.com/max/4195/1*cWrckQhDDGxKiwpb6YtPtg.jpeg" style={{ width: "50px", borderRadius: "50%" }} />
+                                <Image src={data.img} style={{ width: "50px", borderRadius: "50%" }} />
                             </Col>
                             <Col>
-                                Dimas Aji Wicakasono <br />
-                                @dimasajiwicaksono
+                                {data.name} <br />
+                                {data.email}
                             </Col>
                         </Row>
 
                     </Dropdown.Item >
                     {/* <Link to ="#"> */}
-                    <Dropdown.Item as="button" style={{ textDecoration: "none" }}> Profile</Dropdown.Item>
-                    <Dropdown.Item as="button" style={{ textDecoration: "none" }}> My Ticket</Dropdown.Item>
-                    <Dropdown.Item as="button" style={{ textDecoration: "none" }}> Payment</Dropdown.Item>
-                    <Dropdown.Item as="button" style={{ textDecoration: "none" }}> Add Event</Dropdown.Item> 
+                    <Link to={`/profile/${data.id}`}> <Dropdown.Item as="button" style={{ textDecoration: "none" }}> Profile</Dropdown.Item></Link>
+                    <Link to='/myticket'><Dropdown.Item as="button" style={{ textDecoration: "none" }}> My Ticket</Dropdown.Item></Link>
+                    <Link to='/payment'><Dropdown.Item as="button" style={{ textDecoration: "none" }}> Payment</Dropdown.Item></Link>
+                    <Link to='/add_event'><Dropdown.Item as="button" style={{ textDecoration: "none" }}> Add Event</Dropdown.Item></Link>
                     <Dropdown.Divider />
-                    <Dropdown.Item as="button" style={{ textDecoration: "none" }}> Logout</Dropdown.Item>
-                                       {/* </Link> */}
+                    <Link to='/Login'> <Dropdown.Item as="button" style={{ textDecoration: "none" }}> Logout</Dropdown.Item></Link>
+                    {/* </LinkT> */}
                 </div>
             </DropdownButton>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        profile: state.profile
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getUser: (userId) => dispatch(profile(userId))
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(DropDownProfile)

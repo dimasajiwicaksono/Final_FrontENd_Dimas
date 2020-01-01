@@ -1,47 +1,79 @@
 import React, { Component } from 'react';
-import { Container, Row, Col, FormControl } from 'react-bootstrap';
+import { Container, Row, Col } from 'react-bootstrap';
 import Header from '../Nav/Header';
 import NavCategory from '../Nav/NavCategory';
-import Today from './Content/Today';
+import Footer from '../Nav/Footer';
+import Today from '../Home/Content/Today';
+import { connect } from 'react-redux';
+import { events } from '../../_actions/events'
 
 
-export default class Home extends Component {
+class Home extends Component {
+
+    componentDidMount() {
+
+        this.props.getEvents()
+        console.log()
+    }
+
     render() {
+        const { data, fetching, error } = this.props.events
+        console.log(data)
+
+
         return (
             <div>
-                <div className="header" fix="top">
+                <div className="header">
                     <Header />
                 </div>
-                <Container>
-                <div>
-                    <h1> ini untuk search</h1>
-                </div>
-
+                <br /><br />
+                {/* <div><br /><br /> */}
                 <NavCategory />
-                <div className="todayContent">
+                
+                <Container>
                     <h1>Today</h1>
-                    <Row className="todayContent">
-                        <Col>
-                            <Today />
-                        </Col>
-                        <Col>
-                            <Today />
-                        </Col>
-                    </Row>
-                </div>
-                <div className="upcomingContent">
-                    <h1>Upcoming</h1>
-                    <Row className="upcomingContent">
-                        <Col>
-                            <Today />
-                        </Col>
-                        <Col>
-                            <Today />
-                        </Col>
-                    </Row>
-                </div>
+                <Row>
+                    {data.map(item =>
+                        <Today
+                            id={item.id}
+                            title={item.title}
+                            description={item.description}
+                            img={item.img}
+                            price={item.price}
+                            start={item.start_time}
+                            category={item.category.name} />
+                    )}
+                </Row>
+                    <div className="upcomingContent">
+                        <br />
+                        <br />
+
+                        <h1>Upcoming</h1>
+                        <Row className="upcomingContent">
+                            <Col>
+                                <Today />
+                            </Col>
+                        </Row>
+                    </div>
                 </Container>
-            </div>
+                <Footer />
+            </div >
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        events: state.events
+    }
+}
+
+
+const mapDispacthToProps = (dispatch) => {
+    return {
+        getEvents: () => dispatch(events())
+    }
+}
+
+export default connect(mapStateToProps, mapDispacthToProps)(Home)

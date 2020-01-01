@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { Form, Button } from 'react-bootstrap';
+import { Form, Button, Container } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 
-export default class Login extends Component {
+export default class Register extends Component {
 
     userData;
 
@@ -14,44 +14,44 @@ export default class Login extends Component {
         this.onChangeFullName = this.onChangeFullName.bind(this);
         this.onChangeEmail = this.onChangeEmail.bind(this);
         this.onChangeUserName = this.onChangeUserName.bind(this);
-        this.onChangeName = this.onChangeName.bind(this);
+        this.onChangePassword = this.onChangePassword.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             name: '',
             email: '',
             username: '',
-            password: '',
+            password: ''
 
         }
     }
 
     // Form Events
     onChangeFullName(e) {
-        this.setState({ name: e.target.value })
+        this.setState({name: e.target.value })
     }
 
     onChangeEmail(e) {
-        this.setState({ email: e.target.value })
+        this.setState({email: e.target.value })
     }
 
     onChangeUserName(e) {
-        this.setState({ username: e.target.value })
+        this.setState({username: e.target.value })
     }
 
-    onChangeName(e) {
-        this.setState({ password: e.target.value })
+    onChangePassword(e) {
+        this.setState({password: e.target.value })
     }
 
 
     onSubmit(e) {
-        e.preventDefault()
+        // e.preventDefault()
 
         this.setState({
             name: '',
             email: '',
             username: '',
-            password: '',
+            password: ''
         })
     }
 
@@ -60,18 +60,21 @@ export default class Login extends Component {
         this.userData = JSON.parse(localStorage.getItem('user'));
 
         if (localStorage.getItem('user')) {
-            this.setState({
+            this.setState(
+                {
                 name: this.userData.name,
                 email: this.userData.email,
                 username: this.userData.username,
-                password: this.userData.password,
-            })
-        } else {
+                password: this.userData.password
+            }
+            )
+        } 
+        else {
             this.setState({
                 name: '',
                 email: '',
                 username: '',
-                password: '',
+                password: ''
             })
         }
     }
@@ -83,33 +86,52 @@ export default class Login extends Component {
 
     render() {
         return (
-
-            <Form onSubmit={this.onSubmit} style={{ marginLeft: 180 }}>
+            <Container style={{marginTop:50, width:700}}>
+            <Form onSubmit={this.onSubmit} >
+                <h1 style={{marginBottom:40}}>Registrasi disini</h1> 
                 <div className="form-center">
                     <div className="form-group">
                         <label>Name</label>
-                        <input type="name" className="form-control" value={this.state.username} onChange={this.onChangeName} />
-                    </div>
-                    <div className="form-group">
-                        <label>Email</label>
-                        <input type="email" className="form-control" value={this.state.email} onChange={this.onChangeEmail} />
+                        <input type="text" 
+                            className="form-control" 
+                            value={this.state.name} 
+                            onChange={this.onChangeFullName} />
                     </div>
                     <div className="form-group">
                         <label>username</label>
-                        <input type="username" className="form-control" value={this.state.name} onChange={this.onChangeUserName} />
+                        <input type="username" 
+                            className="form-control" 
+                            value={this.state.username} 
+                            onChange={this.onChangeUserName} />
+                    </div>
+                    <div className="form-group">
+                        <label>Email</label>
+                        <input type="email" 
+                            className="form-control" 
+                            value={this.state.email} 
+                            onChange={this.onChangeEmail} required/>
                     </div>
                     <div className="form-group">
                         <label>Password</label>
-                        <input type="password" className="form-control" value={this.state.password} onChange={this.onChangeName} />
+                        <input type="password" 
+                            className="form-control" 
+                            value={this.state.password} 
+                            onChange={this.onChangePassword} />
                     </div>
                     <div className="form-group">
-                        <Button style={{ color: "white" }} variant="dark" type="submit" className="btn-continue">
+                        <Link to ='/home' >
+                            <Button style={{ color: "white" }} 
+                                variant="dark" 
+                                type="submit"
+                                className="btn-primary">
                          Submit   {/* <Link to="/Home" style={{ color: "white" }}>Continue</Link> */}
                         </Button>
+                        </Link>
                     </div>
                     <br /><br />
                 </div>
             </Form>
+            </Container>
 
         )
     }

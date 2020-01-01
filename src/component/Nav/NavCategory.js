@@ -1,41 +1,55 @@
 import React, { Component } from 'react';
-import {Container, Nav, Button} from 'react-bootstrap';
-// import axios from 'axios';
-// import {Link} from 'react-router-dom';
+import { Container, Nav, Button } from 'react-bootstrap';
+import { connect } from 'react-redux';
+import { categoriesList } from '../../_actions/categoriesList';
+import { Link } from 'react-router-dom';
 
+class Category extends Component {
 
-export default class Category extends Component {
+    componentDidMount() {
+        
+        this.props.getCategoriesList()
+    }
 
-    // constructor (props) {
-    //     super (props);
-    //     this.state = {
-    //         categories : [],
-    //     };
-    // }
+    render() {
 
-    // componentDidMount () {
-    //     axios.get ('http://localhost:5000/api/v1/categories')
-    //         .then (res => { 
-    //             // this.setState ({props : params})
-    //             this.setState ({categories:res.data})  
-    //         })
-    //         console.log(this.state);
-    // }
+        const { data, fetching, error } = this.props.categoriesList;
+        console.log (data )
+        // if (fetching) {
+        //     return <h1> now is loading </h1>
+        // }
+        
 
-    render () {
-        // console.log ('sdah masuk')
         return (
-            <Container style={{paddingTop:0}}>
-                <h1>Category</h1>
-                <Nav className= 'button-group' style={{padding:10}}>
-                    <Button className="btn-light" style={{margin:10, width: 100}}>
-                        Sport
-                    </Button>
-                {/* {this.state.categories.map ( (categories, idx) => (
-                    <Nav.Link key ={categories.id} ><Link to = '/category_page' style={{textDecoration:"none"}}>{categories.name}</Link></Nav.Link>
-                        ))} */}
+            <Container style={{ paddingTop: 0 }}>
+                <h1 style={{marginRight:0, paddingleft:0}}>Category</h1>
+                <Nav className='button-group' style={{ padding: 10, fontSize:"30px" }}>
+                    {data.map((data, index) => (
+                        <Nav.Link key={data.id} >
+                            <Link to={`/category/${data.id}`} style={{ textDecoration: "none" }}>
+                                <Button className='btn-danger'
+                                    style={{fontSize:30}}>{data.name}</Button>
+                            </Link>
+                        </Nav.Link>
+                    ))}
                 </Nav>
             </Container>
         )
     }
 }
+
+const mapStateToProps = (state) => {
+    return {
+        categoriesList: state.categoriesList
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getCategoriesList: () => dispatch(categoriesList())
+    }
+}
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps)(Category)
