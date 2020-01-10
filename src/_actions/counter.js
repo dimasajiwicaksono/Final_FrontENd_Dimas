@@ -11,9 +11,3 @@ export const counterDecreament =() => {
         type: 'DECREAMENT'
     }
 }
-
-export const counterTotal =() => {
-    return {
-        type: 'TOTAL'
-    }
-}

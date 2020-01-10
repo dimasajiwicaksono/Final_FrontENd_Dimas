@@ -24,7 +24,6 @@ class Today extends Component {
     render() {
         const data = this.props
         console.log(data)
-       
         return (
             // <Container style={{marginBottom:30}}>
             <Col md={6}>
@@ -47,7 +46,7 @@ class Today extends Component {
                             <Row>
                                 <Col md={10} xs={12}>
                                 
-                                    <Link to={`/event/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}><h3>{this.props.title}</h3></Link>
+                                    <Link to={`/event/${data.id}`} style={{ textDecoration: 'none', color: 'black' }}><h3>{this.props.title} ...</h3></Link>
                                     <h3 style={{ color: '#dd3636' }}>{this.props.category}</h3> <br />
                                     <h6>{this.props.description}</h6><br />
                                     <h5><Moment format="D MMM YYYY">{this.props.start}</Moment></h5>

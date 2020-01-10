@@ -7,6 +7,7 @@ import counter from '../_reducers/counter';
 import events from '../_reducers/events';
 import categoriesList from '../_reducers/categoriesList';
 import profile from '../_reducers/profile';
+import order from '../_reducers/orders';
 
 
 
@@ -15,7 +16,8 @@ const reducers = combineReducers ({
     categoriesList,
     counter,
     events,
-    profile
+    profile,
+    order
 });
 
 

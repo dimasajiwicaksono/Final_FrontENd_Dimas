@@ -23,12 +23,12 @@ class Category extends Component {
         return (
             <Container style={{ paddingTop: 0 }}>
                 <h1 style={{marginRight:0, paddingleft:0}}>Category</h1>
-                <Nav className='button-group' style={{ padding: 10, fontSize:"30px" }}>
+                <Nav className='button-group' style={{ padding: 10, fontSize:"1em" }}>
                     {data.map((data, index) => (
                         <Nav.Link key={data.id} >
                             <Link to={`/category/${data.id}`} style={{ textDecoration: "none" }}>
-                                <Button className='btn-danger'
-                                    style={{fontSize:30}}>{data.name}</Button>
+                                <Button className='justify-item-center' md={3}
+                                    style={{fontSize:'1.5em',backgroundColor:'#ff7315', width:200, border:'none'}}>{data.name}</Button>
                             </Link>
                         </Nav.Link>
                     ))}

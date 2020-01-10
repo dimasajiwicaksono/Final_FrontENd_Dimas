@@ -7,21 +7,21 @@ export default class Header extends Component {
     render() {
         return (
 
-            <div className=' bg-danger justify-content-between'>
+            <div className=' justify-content-between' style={{backgroundColor:'#232020'}}sticky='bottom'>
                 <Row style={{ margin: 50 }}>
                     <Row style={{ margin: 20 }}>
                         <Col md={6}>
                             <Navbar.Brand className='light'
                                 style={{ fontSize: '2em', color: 'white' }}
                                 href='/Home'>
-                                Dumb-Tick
+                                e-Ventick
                         </Navbar.Brand>
                             <Col style={{ padding: 0 }}>
                                 <h6 style={{ color: 'white' }}>
-                                    Dumb-Tick is the powerful
+                                    e-Ventick is the powerful
                                     e-ticketing platform
                                     serve your experience with
-                                    Sport, Science, and Programming
+                                    Sport, Tech, Art, Music
                                 </h6>
                             </Col>
                         </Col>
@@ -41,6 +41,7 @@ export default class Header extends Component {
                     </Nav>
                 </Row>
             </div>
+       
         )
     }
 }

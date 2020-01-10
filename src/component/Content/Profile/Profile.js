@@ -12,7 +12,7 @@ class Profile extends Component {
 
     componentDidMount() {
 
-        const userId = this.props.match.params.id
+        const userId =localStorage.getItem("id")
         this.props.getUser(userId)
     }
 

@@ -24,7 +24,7 @@ ReactDOM.render(
             <Provider store = {store}>
             <Router>
                 <Switch>
-                    <Route exact path = '/home' component = {Home} />
+                    <Route exact path = '/' component = {Home} />
                     <Route path = '/add_event' component ={AddEvent} />
                     <Route path = '/login' component = {Login} />
                     <Route path = '/register' component ={Register} />

@@ -1,6 +1,6 @@
 const initialState = {
-    num: 0,
-    total: 0
+    num: 1,
+    total: 300000
 }
 
 const total = 300000

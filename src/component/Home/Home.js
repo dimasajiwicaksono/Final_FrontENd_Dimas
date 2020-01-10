@@ -14,6 +14,8 @@ class Home extends Component {
 
         this.props.getEvents()
         console.log()
+
+        
     }
 
     render() {
@@ -31,13 +33,13 @@ class Home extends Component {
                 <NavCategory />
                 
                 <Container>
-                    <h1>Today</h1>
+                    <h1 style={{fontSize:'2.5em'}}>Today</h1>
                 <Row>
                     {data.map(item =>
                         <Today
                             id={item.id}
-                            title={item.title}
-                            description={item.description}
+                            title={item.title.substring(0,20)}
+                            description={item.description.substring(0,30)}
                             img={item.img}
                             price={item.price}
                             start={item.start_time}

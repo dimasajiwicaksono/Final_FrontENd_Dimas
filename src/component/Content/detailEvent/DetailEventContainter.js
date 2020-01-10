@@ -44,6 +44,7 @@ class DetailEventContainter extends Component {
                             <Card>
                                 <Card.Img src = {data.urlMaps}
                                     style ={{alt:"map", objectFit:'cover'}}/><br />
+                                    {/* <iframe src={data.urlMaps}></iframe> */}
                             </Card>
                             </div>
                             <h5 style={{textAlign:'center'}}>Shared Event</h5><br/>

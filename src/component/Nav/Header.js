@@ -1,29 +1,67 @@
 import React, { Component } from 'react';
-import { Nav, Navbar} from 'react-bootstrap';
+import { Nav, Navbar, Container } from 'react-bootstrap';
+import {connect } from 'react-redux'
+
 import DropDownProfile from './DropDown';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import ModalLogin from '../Form/Login/ModalLogin'
+import ModalRegister from '../Form/Register/ModalRegister';
 
+import { profile } from '../../_actions/profile';
 
-export default class Header extends Component {
+class Header extends Component {
+
+    componentDidMount() {
+
+        const userId =localStorage.getItem("id")
+        this.props.getUser(userId)
+    }
+
     render() {
+
+        const { data, fetching, error } = this.props.profile
+        console.log(data)
+
         return (
-            <Navbar className=' bg-danger justify-content-between'
-                    /*fixed='top'*/>
+
+            <Navbar className='justify-content-between'
+                    style={{backgroundColor:'#232020'}}
+                    >
+
                 <Navbar.Brand
                     className='light'
                     style={{ fontSize: '2em', color: 'white' }}
-                    href='/Home'>
-                    Dumb-Tick
-                </Navbar.Brand>
-                <Nav
-                    className="justify-content-end "
-                    style={{ fontSize: '1.5em', color: 'white' }}>
-                        <FontAwesomeIcon icon={ faUser } style={{marginTop:15}} /><Nav.Link href='/Register'>Register</Nav.Link>
-                        <FontAwesomeIcon icon={ faSignInAlt } style={{marginTop:15}} /><Nav.Link href='/Login'>Login</Nav.Link>
-                    < DropDownProfile />
+                    href='/'>
+                    e-Ventick
+                    </Navbar.Brand>
+                <Nav className='justify-content-end'>
+                    {localStorage.getItem('token') ?
+
+                        (<DropDownProfile />) : (
+
+                        <div>
+                
+                            <ModalLogin style={{ fontSize: '2em', color: 'white', marginRight:10 }} />,
+                            <ModalRegister style={{ fontSize: '2em', color: 'white' , marginLeft:20}} />
+                        </div> )
+                        }
                 </Nav>
             </Navbar>
         )
     }
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        profile : state.profile
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        getUser: (userId) => dispatch(profile(userId))
+    }
+}
+
+
+export default connect (mapStateToProps, mapDispatchToProps)(Header)

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
 import { Modal, Button} from 'react-bootstrap'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUser} from '@fortawesome/free-solid-svg-icons';
 
-import Login from './Login';
+import Register from './Register';
 
-class ModalLogin extends Component {
+
+class ModalRegister extends Component {
 	constructor(props, context) {
 		super(props, context);
 
@@ -28,19 +29,20 @@ class ModalLogin extends Component {
 	render() {
 		return (
 			<>
-				<Button variant="outline-light" onClick={this.handleShow} style={{ fontSize: '1em',
-																			outline:'none', 
-																			border:'none' }}>
-				{/* <FontAwesomeIcon icon={ faSignInAlt } style={{marginTop:15}} /> */}
-				Log In
+				<Button variant='#f17362' onClick={this.handleShow} style={{ fontSize: '1em', 
+															color: 'white', 
+															backgroundColor:'#ff7315',
+															outline:'none' }}>
+				{/* <FontAwesomeIcon icon={ faUser } style={{marginTop:15}} /> */}
+				Sign Up
         </Button>
 
 				<Modal show={this.state.show} onHide={this.handleClose}>
 					<Modal.Header closeButton>
-						<Modal.Title>Log In</Modal.Title>
+						<Modal.Title>Register</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-					<Login />
+					<Register />
 
 
 					</Modal.Body>
@@ -51,4 +53,4 @@ class ModalLogin extends Component {
 	}
 }
 
-export default ModalLogin;
+export default ModalRegister;
