@@ -14,8 +14,6 @@ import AddEvent from './component/Content/AddEvent/AddEvent';
 import DetailEvent from './component/Content/detailEvent/DetailEvent'
 import Payment from './component/Content/Payment/Payment';
 import {BrowserRouter as Router, Route,  Switch } from 'react-router-dom';
-
-// import {BrowserRouter as Router, Route} from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './_redux/store';
 import * as serviceWorker from './serviceWorker';
@@ -36,11 +34,6 @@ ReactDOM.render(
                 </Switch>
             </Router>
             </Provider>
-            
-            
-            
-            
-            
             
 , document.getElementById('root'));
 

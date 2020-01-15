@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
-import { Modal, Button} from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSignInAlt } from '@fortawesome/free-solid-svg-icons';
+import { Modal, Button } from 'react-bootstrap'
+	;
 
 import Login from './Login';
 
@@ -24,15 +23,20 @@ class ModalLogin extends Component {
 	handleShow() {
 		this.setState({ show: true });
 	}
+	
 
 	render() {
 		return (
 			<>
-				<Button variant="outline-light" onClick={this.handleShow} style={{ fontSize: '1em',
-																			outline:'none', 
-																			border:'none' }}>
-				{/* <FontAwesomeIcon icon={ faSignInAlt } style={{marginTop:15}} /> */}
-				Log In
+				<Button variant="outline-light" 
+					onClick={this.handleShow} 
+					style={{
+						fontSize: '1em',
+						outline: 'none',
+						border: 'none'
+				}}>
+
+					Log In
         </Button>
 
 				<Modal show={this.state.show} onHide={this.handleClose}>
@@ -40,11 +44,8 @@ class ModalLogin extends Component {
 						<Modal.Title>Log In</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-					<Login />
-
-
+						<Login handleClose={this.handleClose} />
 					</Modal.Body>
-			
 				</Modal>
 			</>
 		);

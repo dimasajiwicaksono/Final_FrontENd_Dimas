@@ -16,7 +16,10 @@ class Login extends Component {
 
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            message : false,
+            show: false
+            
         }
     }
 
@@ -30,15 +33,25 @@ class Login extends Component {
     }
 
     
-    handleClick = () => {
+    handleClick = (event) => {
+        this.props.handleClose()
+        event.preventDefault()
         const { username, password } = this.state;
         if (!username || !password) {
             this.setState({
-                err: true
+                err: true,
+                message :'Password/Username Wrong',
+                username:'',
+                password:'',
+                
             })
         } else {
             this.setState({
-                err: false
+                err: false,
+                username:'',
+                password:'',
+                show:false
+
             })
             axios.post('https://dumb-tickapp.herokuapp.com/api/v1/login', {
                 username: this.state.username,
@@ -52,21 +65,21 @@ class Login extends Component {
                 localStorage.setItem("email", data.user.email);
                 localStorage.setItem("token", data.token);
                 localStorage.setItem("isLogged", true);
-                window.location.reload();
-
+                window.location.reload()
             }
-            )
+            ).catch(err => { console.log(
+                alert('Mohon Masukan Pass yang Benar')
+            ) })
         }
     }
-
-
 
     onSubmit(e) {
         e.preventDefault()
 
         this.setState({
             username: '',
-            password: ''
+            password: '',
+            show:false
         })
     }
 
@@ -96,7 +109,7 @@ class Login extends Component {
                             {/* <Link to="/Home" style={{ color: "white" }}> */}
                                 <Button style={{ color: "white" }}
                                     variant="dark" type="submit"
-                                    className="btn-continue"
+                                    className="btn-primary"
                                     onClick={this.handleClick}>
                                     Submit
                             </Button>

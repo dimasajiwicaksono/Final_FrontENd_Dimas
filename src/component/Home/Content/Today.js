@@ -25,10 +25,8 @@ class Today extends Component {
         const data = this.props
         console.log(data)
         return (
-            // <Container style={{marginBottom:30}}>
             <Col md={6}>
                 <Card>
-                    {/* // <Container> */}
                     <Card.Body>
                         <Card.Img src={this.props.img}
                             style={{ objectFit: 'cover', maxHeight: 200 }}
@@ -60,8 +58,6 @@ class Today extends Component {
                     </Card.Body>
                 </Card>
             </Col>
-            // {/* // </Container> */ }
-            // </Container>
 
         )
     }
