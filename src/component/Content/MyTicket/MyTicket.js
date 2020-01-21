@@ -51,6 +51,7 @@ class MyTicket extends Component {
                                             title={item.event.title}
                                             description = {item.event.description}
                                             price={item.event.price}
+                                            start_time={item.event.start_time}
                                             address={item.event.address}
                                             status={item.status}
                                             /> 

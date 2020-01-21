@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Col, Row, Card } from 'react-bootstrap';
+import Moment from 'react-moment';
 
 export default class MyTicketList extends Component {
 
@@ -39,7 +40,7 @@ export default class MyTicketList extends Component {
                                 <Row className="footer">
                                     <Col className='header' md={9}>
                                         <h1>{this.props.title}</h1>
-                                        <h5>13 Dec 2019 - 18.00 WIB</h5>
+                                        <h5><Moment format='D MMM YYYY'>{this.props.start_time}</Moment></h5>
                                         <h5>{this.props.address}</h5>
                                         <h5>{this.props.status}</h5>
                                     </Col>

@@ -44,7 +44,7 @@ class Payment extends Component {
                             name={name}
                             title={item.event.title}
                             address={item.event.address}
-                            start_time={item.event.startTime}
+                            start_time={item.event.start_time}
                             price={item.event.price}
                             quantity={item.quantity}
                             totalPrice={item.totalPrice}
