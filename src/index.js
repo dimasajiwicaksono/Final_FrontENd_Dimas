@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '@fortawesome/free-solid-svg-icons';
 import Login from './component/Form/Login/Login';
