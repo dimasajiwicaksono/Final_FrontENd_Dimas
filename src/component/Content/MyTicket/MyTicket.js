@@ -36,7 +36,7 @@ class MyTicket extends Component {
                         <div>
                             <h1 style={
                                 {color: '#ff4d4d', 
-                                fontSize: 70 }}>My Tickets</h1>
+                                fontSize: '3em' }}>My Tickets</h1>
                         </div>
                         <hr style={
                             { border: 'solid 1px', 

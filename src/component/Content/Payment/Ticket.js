@@ -54,7 +54,7 @@ class Ticket extends Component {
                             style={{
                                 background: "white",
                                 zIndex: 1,
-                                margin: 20
+                                margin: 10
                             }}>
                             <Row className="header"
                                 style={{
@@ -99,16 +99,16 @@ class Ticket extends Component {
                     <hr style={{ border: 'solid 1px' }} />
                     <Card.Body className="paymentSign">
                         <h3>Prove of Payment</h3>
-                        <Row className='imagePic'>
-                            <Col xs ={12} md={9}>
+                        <Row className='imagePic' style={{justifyContent:'center'}}>
+                            <Col xs ={12} md={6}>
                                 <Col xs ={12} md={4}>
                                     {/* <Card.Img src="https://1.bp.blogspot.com/-hyzxX07ciWk/XPaURkosaeI/AAAAAAAABRM/AaCDgJWE8pM-f97Xp9fldguUsjcQ0aGJACLcBGAs/s640/hadits21info-invoice%25231797799.jpg"
                                         style={{ objectFit: 'cover' }} /> */}
-                                        <Button >Add Your Payment</Button>
+                                        <Button style={{justifyContent:'center', marginLeft:25, marginBottom:10}}>Add Your Payment</Button>
                                     <br />
                                 </Col>
                             </Col>
-                            <Col xs ={12} md={3}>
+                            <Col xs ={12} md={6}>
                                 <Button variant={this.props.status === 'pending' ? 'success': 'danger'}
                                     style={{ fontSize: '2em', marginLeft:50}}
                                     onClick={this.handleClick}>
