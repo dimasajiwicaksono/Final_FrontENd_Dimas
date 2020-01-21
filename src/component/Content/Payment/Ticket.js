@@ -48,7 +48,7 @@ class Ticket extends Component {
         return (
             <div className="container" style={{ marginBottom: 50 }}>
                 <Card className="ticket"
-                    style={{ marginRight: 50, marginLeft: 50 }} >
+                    >
                     <Card.Body style={{ background: "#ff7315" }}>
                         <Card.Body
                             style={{

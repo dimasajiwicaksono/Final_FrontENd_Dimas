@@ -39,8 +39,9 @@ class DetailEventCard extends Component {
             dataPayment ).then(res => {
                 const data = res.data;
                 console.log(data)
-                window.location.href = (`/payment`);
-            })
+                window.location.href = (`/payment/`);
+            } 
+            )
     }
 
     componentDidMount() {
@@ -133,7 +134,6 @@ class DetailEventCard extends Component {
                                 <p3>{email.email}</p3>
                             </Col>
                         </Row>
-
                     </Card.Body>
                 </Card>
 
@@ -148,7 +148,5 @@ const mapStateToProps = (state) => {
         eventsById: state.events
     }
 }
-
-
 
 export default connect(mapStateToProps)(DetailEventCard)

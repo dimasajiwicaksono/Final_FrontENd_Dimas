@@ -27,20 +27,21 @@ class ModalRegister extends Component {
 	render() {
 		return (
 			<>
-				<Button variant='#f17362' onClick={this.handleShow} style={{ fontSize: '1em', 
-															color: 'white', 
-															backgroundColor:'#ff7315',
-															outline:'none' }}>
-	
+				<Button variant='#f17362' 
+					onClick={this.handleShow} 
+					style={{ fontSize: '1em', 
+							color: 'white', 
+							backgroundColor:'#ff7315',
+							outline:'none' }}>
 				Sign Up
-        </Button>
+				</Button>
 
 				<Modal show={this.state.show} onHide={this.handleClose}>
 					<Modal.Header closeButton>
 						<Modal.Title>Register</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-						<Register />
+						<Register handleClose={this.handleClose}/>
 					</Modal.Body>
 		
 				</Modal>

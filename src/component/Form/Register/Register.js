@@ -47,6 +47,7 @@ export default class Register extends Component {
 
 
     handlePress = () => {
+        this.props.handleClose()
         const { username, password, email, name } = this.state;
         if (!username || !password || !name || !email) {
             this.setState({
