@@ -37,18 +37,12 @@ class Ticket extends Component {
                 console.log(data)
                 window.location.href=('/myticket')
             })
-
-
-
-
         }
     }
 
 
 
     render() {
-        const status = this.props.status
-
         console.log(this.props.counter.total)
 
         return (
@@ -68,36 +62,35 @@ class Ticket extends Component {
                                     margin: 0,
                                     padding: 0
                                 }}>
-                                <Col className='header' md={9}>
+                                <Col className='header' xs ={12} md={9}>
                                     <h4>{this.props.name}</h4>
                                     <h6>ID ORDER : MDGH{this.props.id}7HG</h6>
                                 </Col>
-                                <Col className='header' md={3}>
+                                <Col className='header' xs ={12} md={3}>
                                     <h4>Face: {this.props.price}</h4>
                                 </Col>
                             </Row>
                             <Row className="footer">
-                                <Col className='header' md={9}>
+                                <Col className='header' xs ={12} md={9}>
                                     <h1>{this.props.title}</h1>
                                     <h5><Moment format='D MMM YYYY'>{this.props.start_time}</Moment> - 18.00 WIB</h5>
                                     <h5>{this.props.address}</h5>
                                 </Col>
-                                <Col className='header' md={3}>
+                                <Col className='header' xs ={12} md={3}>
                                     <Card.Img src='https://id.qr-code-generator.com/wp-content/themes/qr/new_structure/markets/basic_market/generator/dist/generator/assets/images/websiteQRCode_noFrame.png'
                                         style={{ objectFit: 'cover' }} />
                                 </Col>
                             </Row>
                         </Card.Body>
                     </Card.Body>
-
                     <Card.Body className="summary">
                         <h2>Shop Summary</h2>
                         <hr />
                         <Row className='totalPrice'>
-                            <Col md={9}>
+                            <Col xs ={12} md={9}>
                                 <h4>Total Price ( {this.props.quantity} Tickets)  </h4>
                             </Col>
-                            <Col md={3}>
+                            <Col xs ={12} md={3}>
                                 <h4>Rp {this.props.totalPrice}</h4>
                             </Col>
                             <hr />
@@ -106,19 +99,18 @@ class Ticket extends Component {
                     <hr style={{ border: 'solid 1px' }} />
                     <Card.Body className="paymentSign">
                         <h3>Prove of Payment</h3>
-
                         <Row className='imagePic'>
-                            <Col md={10}>
-                                <Col md={4}>
-
-                                    <Card.Img src="https://1.bp.blogspot.com/-hyzxX07ciWk/XPaURkosaeI/AAAAAAAABRM/AaCDgJWE8pM-f97Xp9fldguUsjcQ0aGJACLcBGAs/s640/hadits21info-invoice%25231797799.jpg"
-                                        style={{ objectFit: 'cover' }} />
+                            <Col xs ={12} md={9}>
+                                <Col xs ={12} md={4}>
+                                    {/* <Card.Img src="https://1.bp.blogspot.com/-hyzxX07ciWk/XPaURkosaeI/AAAAAAAABRM/AaCDgJWE8pM-f97Xp9fldguUsjcQ0aGJACLcBGAs/s640/hadits21info-invoice%25231797799.jpg"
+                                        style={{ objectFit: 'cover' }} /> */}
+                                        <Button >Add Your Payment</Button>
                                     <br />
                                 </Col>
                             </Col>
-                            <Col md={2}>
+                            <Col xs ={12} md={3}>
                                 <Button variant={this.props.status === 'pending' ? 'success': 'danger'}
-                                    style={{ fontSize: '2em' }}
+                                    style={{ fontSize: '2em', marginLeft:50}}
                                     onClick={this.handleClick}>
                                     {this.props.status } 
                                 </Button>

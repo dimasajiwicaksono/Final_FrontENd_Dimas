@@ -39,7 +39,7 @@ class DetailEventCard extends Component {
             dataPayment ).then(res => {
                 const data = res.data;
                 console.log(data)
-                window.location.href = (`/payment/${id}`);
+                window.location.href = (`/payment`);
             })
     }
 

@@ -1,5 +1,5 @@
 const initialState = {
-    fetching : false,
+    isLoading : false,
     error : null,
     data: []
 }
@@ -10,18 +10,18 @@ const categories = (state=initialState, action) => {
         case 'GET_CATEGORIES_PENDING' :
             return {
                 ...state,
-                fetching :true,
+                isLoading :true,
             };
         case 'GET_CATEGORIES_FULFILLED':
             return {
                 ...state,
-                fetching:false,
+                isLoading:false,
                 data : action.payload.data
             }
         case 'GET_CATEGORIES_REJECTED':
             return {
                 ...state,
-                fetching:false,
+                isLoading:false,
                 error:action.payload
             }
         default: 

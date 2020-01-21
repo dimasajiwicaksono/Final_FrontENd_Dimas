@@ -2,6 +2,8 @@ const initialState = {
     fetching: false,
     error: null,
     data: [],
+    today:[],
+    tomorrow:[]
 }
 
 
@@ -33,7 +35,7 @@ const events = (state = initialState, action) => {
             return {
                 ...state,
                 fetching: false,
-                data: action.payload.data
+                today: action.payload.data
             };
         case 'GET_EVENTS_TODAY_REJECTED':
             return {
@@ -50,7 +52,7 @@ const events = (state = initialState, action) => {
                 return {
                     ...state,
                     fetching: false,
-                    data: action.payload.data
+                    tomorrow: action.payload.data
                 };
         case 'GET_EVENTS_TOMORROW_REJECTED':
                 return {

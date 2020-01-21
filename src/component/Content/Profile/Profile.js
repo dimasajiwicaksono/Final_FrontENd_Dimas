@@ -16,6 +16,10 @@ class Profile extends Component {
         this.props.getUser(userId)
     }
 
+    handleClick (){
+        
+    }
+
     render() {
 
         const { data, fetching, error } = this.props.profile
@@ -39,7 +43,10 @@ class Profile extends Component {
                             </div>
                         </div>
                         <div className="col-2">
-                            <Button className="import" variant="outline-dark" style={{ marginRight: "10px" }}>Edit Profile</Button>
+                            <Button className="import" 
+                                variant="outline-dark" 
+                                style={{ marginRight: "10px" }}
+                                onClick={this.handleClick}>Edit Profile</Button>
                         </div>
                         <div className="col-4">
                             <span><Image src={data.img} style={{ width: 200, height: 200 }} roundedCircle /></span>

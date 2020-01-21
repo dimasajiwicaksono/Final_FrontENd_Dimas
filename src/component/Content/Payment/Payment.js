@@ -58,10 +58,10 @@ class Payment extends Component {
 
                 </Container>
 
-                <div className="header">
+                {/* <div className="header">
                     <Footer />
                 </div>
-    
+     */}
             </div>
         )
     }

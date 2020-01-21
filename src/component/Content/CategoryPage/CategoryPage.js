@@ -10,16 +10,20 @@ class CategoryPage extends Component {
 
     componentDidMount() {
         const categoryId = this.props.match.params.id
-
         this.props.getCategories(categoryId)
-        console.log(categoryId)
     }
     render() {
-        const { data, fetching, error } = this.props.categories;
-        console.log(data)
-        
-        if (fetching) {
-            return <h1>now loading</h1>
+        const { data, isLoading, error } = this.props.categories;
+        const styles = {
+            margin:'50%'
+        }
+
+        if (isLoading) {
+            return <h1 style={styles}>now loading</h1>
+        }
+
+        if (error) {
+            return <h1 style={styles}>Bad Request</h1>
         }
         
         return (
@@ -31,7 +35,6 @@ class CategoryPage extends Component {
                 <br /><br />
                 <div className='container'>
                     <Container>
-                        <h1 style={{ color: "#ff4d4d" }}></h1>
                         <div className='formGroup'>
                             <Form.Group as={Col} md={4}>
                                 <InputGroup>
@@ -46,9 +49,7 @@ class CategoryPage extends Component {
                                 </InputGroup>
                             </Form.Group>
                         </div>
-                        <div>
-                            <h1>{this.props.match.params.id}</h1>
-                        </div>
+                        
                         <Row>
                             {data.map(item =>
                                 <CategoryContent 

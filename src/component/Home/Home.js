@@ -29,16 +29,13 @@ class Home extends Component {
 
     componentDidMount() {
 
-
         const date = moment(new Date()).format("YYYY-MM-DD")
         var tomorrow = new Date()
         tomorrow.setDate(moment(tomorrow.getDate() + 1))
         const date2 = moment(tomorrow).format("YYYY-MM-DD")
 
         this.props.getEventsToday(date)
-        // this.props.getEventsTomorrow(date2)
-
-
+        this.props.getEventsTomorrow(date2)
     }
 
     handleSearch = (e) => {
@@ -60,12 +57,12 @@ class Home extends Component {
         }
     }
 
-
     render() {
-        const { data } = this.props.events
-        console.log(data)
+        const { today, tomorrow } = this.props.events
         const eventSearch = this.state.eventSearch
-        console.log(eventSearch)
+        // console.log(today)
+        // console.log(tomorrow)
+        // console.log(eventSearch)
 
         return (
             <div>
@@ -102,7 +99,7 @@ class Home extends Component {
                         <div className='event'>
                             <h1 style={{ fontSize: '2.5em' }}>Today</h1>
                             <Row>
-                                {data.map(item =>
+                                {today.map(item =>
                                     <Today
                                         id={item.id}
                                         title={item.title.substring(0, 20)}
@@ -118,7 +115,16 @@ class Home extends Component {
                                 <br />
                                 <h1>Upcoming Event</h1>
                                 <Row className="upcomingContent">
-                                    <Today />
+                                {tomorrow.map(item =>
+                                    <Today
+                                        id={item.id}
+                                        title={item.title.substring(0, 20)}
+                                        description={item.description.substring(0, 30)}
+                                        img={item.img}
+                                        price={item.price}
+                                        start={item.start_time}
+                                        category={item.category.name} />
+                                )}
                                 </Row>
                             </div>
                         </div>
@@ -134,7 +140,6 @@ class Home extends Component {
 const mapStateToProps = (state) => {
     return {
         events: state.events,
-        // getEventsTomorrow: state.events
     }
 }
 
@@ -142,7 +147,7 @@ const mapStateToProps = (state) => {
 const mapDispacthToProps = (dispatch) => {
     return {
         getEventsToday: (date) => dispatch(getEventsToday(date)),
-        // getEventsTomorrow: (date2) => dispatch(getEventsTomorrow(date2))
+        getEventsTomorrow: (date2) => dispatch(getEventsTomorrow(date2))
     }
 }
 
