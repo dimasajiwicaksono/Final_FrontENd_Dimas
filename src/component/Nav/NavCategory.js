@@ -13,7 +13,7 @@ class Category extends Component {
 
     render() {
 
-        const { data, fetching, error } = this.props.categoriesList;
+        const { data } = this.props.categoriesList;
         console.log (data )
         // if (fetching) {
         //     return <h1> now is loading </h1>

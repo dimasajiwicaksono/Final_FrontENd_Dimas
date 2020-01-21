@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Form, Button, Container } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 class Login extends Component {
@@ -106,14 +105,14 @@ class Login extends Component {
                                 onChange={this.onChangePassword} required />
                         </div>
                         <div className="form-group">
-                            {/* <Link to="/Home" style={{ color: "white" }}> */}
+                            
                                 <Button style={{ color: "white" }}
                                     variant="dark" type="submit"
                                     className="btn-primary"
                                     onClick={this.handleClick}>
                                     Submit
                             </Button>
-                            {/* </Link> */}
+                           
                         </div>
                         <br /><br />
                     </div>

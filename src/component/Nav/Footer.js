@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { Nav, Navbar, Button, Col, Row, Container } from 'react-bootstrap';
-import DropDown from './DropDown';
-import { Link } from 'react-router-dom';
+import { Nav, Navbar, Col, Row } from 'react-bootstrap';
 
 export default class Header extends Component {
     render() {
@@ -29,19 +27,18 @@ export default class Header extends Component {
                             <h5>Link</h5>
                             <h6>About Us</h6>
                             <h5>Follow Us</h5>
-                            <h6>Instgaram</h6>
+                            <h6>Instagram</h6>
                             <h6>Twitter</h6>
                         </Col>
                         <Col md={3} style={{ color: 'white' }}>
                             <h5>Have a Questions ?</h5>
-                            <p1>dumbtick@support.com</p1>
+                            <p1>eventick@support.com</p1>
                         </Col>
                     </Row>
                     <Nav className="justify-content-end ">
                     </Nav>
                 </Row>
             </div>
-       
         )
     }
 }

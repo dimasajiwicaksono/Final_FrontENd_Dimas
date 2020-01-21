@@ -5,8 +5,6 @@ import { faCalendarAlt, faClock } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import axios from 'axios';
-import { Link } from 'react-router-dom';
-
 
 import { eventsById } from '../../../_actions/events'
 import { counterIncreament, counterDecreament } from '../../../_actions/counter';
@@ -41,7 +39,7 @@ class DetailEventCard extends Component {
             dataPayment ).then(res => {
                 const data = res.data;
                 console.log(data)
-                window.location.href = (`/payment/${id}?order=${data.id}`);
+                window.location.href = (`/payment/${id}`);
             })
     }
 
@@ -52,9 +50,9 @@ class DetailEventCard extends Component {
     }
 
     render() {
-        console.log(this.props.counter.num)
         const { data } = this.props.eventsById
         console.log(data)
+        console.log(this.props.counter.num)
 
         // variable to call nested object JS
         const categoryName = ((data || {}).category || {});

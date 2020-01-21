@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import { Modal, Button} from 'react-bootstrap'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser} from '@fortawesome/free-solid-svg-icons';
 
 import Register from './Register';
 
@@ -33,7 +31,7 @@ class ModalRegister extends Component {
 															color: 'white', 
 															backgroundColor:'#ff7315',
 															outline:'none' }}>
-				{/* <FontAwesomeIcon icon={ faUser } style={{marginTop:15}} /> */}
+	
 				Sign Up
         </Button>
 
@@ -42,11 +40,9 @@ class ModalRegister extends Component {
 						<Modal.Title>Register</Modal.Title>
 					</Modal.Header>
 					<Modal.Body>
-					<Register />
-
-
+						<Register />
 					</Modal.Body>
-			
+		
 				</Modal>
 			</>
 		);

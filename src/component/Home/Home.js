@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Container, Row } from 'react-bootstrap';
 import moment from 'moment';
 import axios from 'axios'
 
@@ -76,7 +76,7 @@ class Home extends Component {
                 <div className='container'>
                     <input type='search'
                         placeholder='Search Event'
-                        style={{ width: '50%', border: 'none', borderBottom: 'solid', outline: 'none', marginBottom: 30, fontSize: 30, border: 'transparent' }}
+                        style={{ width: '50%', border: 'none', borderBottom: 'solid', outline: 'none', marginBottom: 30, fontSize: 30 }}
                         value={this.state.search}
                         onChange={this.handleSearch}
                     /><FontAwesomeIcon icon={faSearch} style={{ height: 30, width: 30 }} />

@@ -34,9 +34,13 @@ class MyTicket extends Component {
                 <Container>
                     <div className="myTicket">
                         <div>
-                            <h1 style={{ color: '#ff4d4d', fontSize: 70 }}>My Tickets</h1>
+                            <h1 style={
+                                {color: '#ff4d4d', 
+                                fontSize: 70 }}>My Tickets</h1>
                         </div>
-                        <hr style={{ border: 'solid 1px', color: '#ff4d4d' }} />
+                        <hr style={
+                            { border: 'solid 1px', 
+                            color: '#ff4d4d' }} />
                         <div className="container">
                             <Row className="myTicket">
                                 <Col>
