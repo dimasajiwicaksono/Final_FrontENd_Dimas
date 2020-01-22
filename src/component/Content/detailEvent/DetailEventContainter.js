@@ -3,7 +3,10 @@ import { Container, Row, Col, Button, Card} from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMapMarkerAlt } from '@fortawesome/free-solid-svg-icons';
 import { connect } from 'react-redux';
-
+import {FacebookShareButton,
+    TwitterShareButton,
+    WhatsappShareButton,
+FacebookIcon, TwitterIcon, WhatsappIcon} from 'react-share'
 
 import { eventsById } from '../../../_actions/events';
 
@@ -11,12 +14,14 @@ import { eventsById } from '../../../_actions/events';
 class DetailEventContainter extends Component {
 
     componentDidMount(){
-
+       
         this.props.dispatch(eventsById())
     }
 
     render() {
         const { data } = this.props.eventsById
+        console.log(data.title)
+        const shareUrl =`https://e-ventick.netlify.com/event/${data.id}`
         console.log(data)
         return (
             <Container style={{marginTop:50}} >
@@ -40,22 +45,24 @@ class DetailEventContainter extends Component {
                                 <p1> {data.address}</p1><br /><br/>
                                 </Col>
                             </Row>
-                            <div className="text-align-center">
-                            <Card>
-                                <Card.Img src = {data.urlMaps}
-                                    style ={{alt:"map", objectFit:'cover'}}/><br />
-                                    {/* <iframe src={data.urlMaps}></iframe> */}
-                            </Card>
+                            <div className="cardMap" style={styles.cardMap}>
+                            {/* <Card > */}
+                                {/* <Card.Img src = {data.urlMaps} */}
+                                    <iframe src="https://www.google.com/maps/d/embed?mid=13PmuA2jryS1-HpNVMIM4TCkfl-Y" style={styles.card}>Istora Bung Karno</iframe>
+                            {/* </Card> */}
                             </div>
                             <h5 style={{textAlign:'center'}}>Shared Event</h5><br/>
                             <div className='text-align-center'>
-                                <Button variant='info'
-                                        style={{marginRight:10}}>Twitter</Button>
-                                <Button variant='primary'
-                                        style={{marginRight:10}}>Facebook</Button>
-                                <Button variant='secondary'>Copy Link</Button>
+                                <FacebookShareButton openShareDialogOnClick ={true} url={shareUrl} style={styles.btn}>
+                                    <FacebookIcon size={32} round={true} style={styles.icon}/>
+                                </FacebookShareButton>
+                                <TwitterShareButton openDialogOnClick={true} url ={shareUrl}>
+                                    <TwitterIcon size={32} round={true} style={styles.icon}/>
+                                </TwitterShareButton>
+                                <WhatsappShareButton openShareDialogOnClick ={true} url ={shareUrl}>
+                                    <WhatsappIcon size={32} round={true} style={styles.icon}/>
+                                </WhatsappShareButton>
                             </div>
-
                         </Col>
                     </Row>
                 </div>
@@ -63,6 +70,25 @@ class DetailEventContainter extends Component {
         )
     }
 }
+
+const styles = {
+    icon : {
+        marginRight: 10,
+        marginLeft:10,
+        marginBottom: 20,
+       
+    },
+    card : {
+        width:'100%',
+        height:'150%'
+    },
+    btn : {
+        outline: 'none',
+        border:'none'
+    }
+
+}
+
 const mapStateToProps = (state) => {
     return {
         eventsById : state.events

@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import Moment from 'react-moment';
 import axios from 'axios';
 
+
 import { eventsById } from '../../../_actions/events'
 import { counterIncreament, counterDecreament } from '../../../_actions/counter';
 
@@ -119,12 +120,12 @@ class DetailEventCard extends Component {
                             <Col md={4} xs={4}>
                                 <h6>Date & Time</h6>
                                 <br />
-                                <FontAwesomeIcon icon={faCalendarAlt}
-                                    style={{ height: 25, width: 25 }} />
-                                <p1><Moment format="D MMM YYYY">{data.start_time}</Moment> -<Moment format="D MMM YYYY">{data.end_time}</Moment></p1> <br />
-                                <FontAwesomeIcon icon={faClock}
-                                    style={{ height: 25, width: 25 }} />
-                                <p2>18.00 - 22.00 WIB</p2>
+                                
+                                <p1><FontAwesomeIcon icon={faCalendarAlt}
+                                    style={{ height: 25, width: 25 }} /> <Moment format="D MMM YYYY">{data.start_time}</Moment></p1> <br />
+                                
+                                <p2><FontAwesomeIcon icon={faClock}
+                                    style={{ height: 25, width: 25 }} /> <Moment format="HH:mm">{data.start_time}</Moment></p2>
                             </Col>
                             <Col md={4} xs={4} >
                                 <h6>Contact Person</h6>

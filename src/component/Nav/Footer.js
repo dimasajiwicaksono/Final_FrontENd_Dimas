@@ -5,8 +5,8 @@ export default class Header extends Component {
     render() {
         return (
 
-            <div className=' justify-content-between' style={{backgroundColor:'#232020'}}sticky='bottom'>
-                <Row style={{ margin: 50 }}>
+            <div className=' justify-content-between' style={{backgroundColor:'#232020'}}>
+                <Row >
                     <Row style={{ margin: 20 }}>
                         <Col md={6}>
                             <Navbar.Brand className='light'

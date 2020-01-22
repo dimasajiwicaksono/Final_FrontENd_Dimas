@@ -5,12 +5,14 @@ The name of this application is "e-Ventick" website, Event ticket booking applic
 This application is a workmanship of batch 13 Dumbways.id bootcamp.
 This application is still in the test and prototype version,
 
+    ### For Demo [e-Ventick](http://e-ventick.netlify.com) 
+
 
 ## 3.Feature
 ![Untitled design-min (4)](https://user-images.githubusercontent.com/49779204/72355391-f279cc80-3719-11ea-91b3-dcd0e6c8f8e1.jpg)
 
 
-## Development 
+## 4. Development 
 
 To fix a bug or enhance an existing module, follow these steps:
 
@@ -22,7 +24,7 @@ To fix a bug or enhance an existing module, follow these steps:
 * Push to the branch `(git push origin improve-feature)`
 * Create a Pull Request
 
-## Built with
+## 5. Built with
 * [ReactJs](https://facebook.github.io/react-native/) 
 * [Node.Js](https://nodejs.org/) 
 * [React-Bootstratp](https://react-bootstrap.github.io/)
@@ -32,6 +34,6 @@ To fix a bug or enhance an existing module, follow these steps:
 
 
 
-## 4.Contact
+## 6.Contact
 WA/TELEGRAM: +62 856 0145 5686
 email: dimasajiwicaksono@gmail.com

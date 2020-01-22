@@ -60,20 +60,16 @@ class Home extends Component {
     render() {
         const { today, tomorrow } = this.props.events
         const eventSearch = this.state.eventSearch
-        // console.log(today)
-        // console.log(tomorrow)
-        // console.log(eventSearch)
-
         return (
             <div>
-                <div className="header">
+                <div className="header sticky-top" >
                     <Header />
                 </div>
                 <br /><br />
                 <div className='container'>
                     <input type='search'
                         placeholder='Search Event'
-                        style={{ width: '50%', border: 'none', borderBottom: 'solid', outline: 'none', marginBottom: 30, fontSize: 30 }}
+                        style={input}
                         value={this.state.search}
                         onChange={this.handleSearch}
                     /><FontAwesomeIcon icon={faSearch} style={{ height: 30, width: 30 }} />
@@ -86,7 +82,7 @@ class Home extends Component {
                                 {eventSearch.map(item =>
                                     <Today
                                         id={item.id}
-                                        title={item.title.substring(0, 20)}
+                                        title={item.title.substring(0,30)}
                                         description={item.description.substring(0, 30)}
                                         img={item.img}
                                         price={item.price}
@@ -118,8 +114,7 @@ class Home extends Component {
                                 {tomorrow.map(item =>
                                     <Today
                                         id={item.id}
-                                        title={item.title.substring(0, 20)}
-                                        description={item.description.substring(0, 30)}
+                                        title={item.title}
                                         img={item.img}
                                         price={item.price}
                                         start={item.start_time}
@@ -131,10 +126,22 @@ class Home extends Component {
                     }
                 </Container>
                 <Footer />
-            </div >
+            </div>
         )
     }
 }
+
+//styling CSS
+const input = { 
+    width: '50%', 
+    border: 'none', 
+    borderBottom: 'solid', 
+    outline: 'none', 
+    marginBottom: 30, 
+    fontSize: 30 
+}
+
+
 
 
 const mapStateToProps = (state) => {

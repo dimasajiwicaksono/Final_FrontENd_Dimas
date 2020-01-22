@@ -26,7 +26,6 @@ class Header extends Component {
             <Navbar className='justify-content-between'
                     style={{backgroundColor:'#232020'}}
                     >
-
                 <Navbar.Brand
                     className='light'
                     style={{ fontSize: '2em', color: 'white' }}
@@ -35,11 +34,11 @@ class Header extends Component {
                     </Navbar.Brand>
                 <Nav className='justify-content-end'>
                     {localStorage.getItem('token') ?
-
-                        (<DropDownProfile />) : (
-
+                        (<DropDownProfile />
+                            ) 
+                        : 
+                        (
                         <div>
-                
                             <ModalLogin style={{ fontSize: '2em', color: 'white', marginRight:10 }} />,
                             <ModalRegister style={{ fontSize: '2em', color: 'white' , marginLeft:20}} />
                         </div> )
